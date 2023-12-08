@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/payment")
 public class SSLCZPaymentController {
 
-//  private final SSLCZPaymentService sslczPaymentService;
-
     @PostMapping("/initiate-payment")
     public String initiatePayment() {
         return null;
