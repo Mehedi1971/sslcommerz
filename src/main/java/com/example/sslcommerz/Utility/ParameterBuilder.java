@@ -33,7 +33,7 @@ public class ParameterBuilder {
         // CREATING LIST OF POST DATA
         String baseUrl = "http://localhost:8080/";//Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/') + "/";
         Map<String, String> postData = new HashMap<String, String>();
-        postData.put("total_amount", "150.00");
+        postData.put("total_amount", "15000.00");
         postData.put("tran_id", "TESTASPNET1234");
         postData.put("success_url", baseUrl + "payment/success");
         postData.put("fail_url", "https://sandbox.sslcommerz.com/developer/fail.php");
