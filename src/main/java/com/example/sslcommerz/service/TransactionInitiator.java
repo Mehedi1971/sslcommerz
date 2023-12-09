@@ -11,7 +11,11 @@ import java.util.Map;
  * Its method initTrnxnRequest returns JSON list or String with Session key which then used to select payment option
  */
 public class TransactionInitiator {
-    public String initTrnxnRequest() {
+    public String initTrnxnRequest(String amount,
+                                   String tran_id,
+                                   String cus_name,
+                                   String cus_email) {
+
         String response = "";
         try {
             /**
@@ -19,7 +23,34 @@ public class TransactionInitiator {
              * keep an eye on success fail url correctly.
              * insert your success and fail URL correctly in this Map
              */
-            Map<String, String> postData = ParameterBuilder.constructRequestParameters();
+//            Map<String, String> postData = ParameterBuilder.constructRequestParameters();
+            Map<String, String> postData = ParameterBuilder.constructRequestParameters(amount,
+                    tran_id,
+                    "http://localhost:8080/payment/success",
+                    "https://sandbox.sslcommerz.com/developer/fail.php",
+                    "https://sandbox.sslcommerz.com/developer/cancel.php",
+                    "3.00",
+                    cus_name,
+                    cus_email,
+                    "Address Line On",
+                    "Address Line Tw",
+                    "City Nam",
+                    "State Nam",
+                    "Post Cod",
+                    "Countr",
+                    "0111111111",
+                    "0171111111",
+                    "ABC XY",
+                    "Address Line On",
+                    "Address Line Tw",
+                    "City Nam",
+                    "State Nam",
+                    "Post Cod",
+                    "Countr",
+                    "ref00",
+                    "ref00",
+                    "ref00",
+                    "ref00");
             /**
              * Provide your SSL Commerz store Id and Password by this following constructor.
              * If Test Mode then insert true and false otherwise.
