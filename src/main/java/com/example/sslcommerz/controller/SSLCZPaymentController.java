@@ -3,6 +3,7 @@ package com.example.sslcommerz.controller;
 import com.example.sslcommerz.model.SSLCommerzValidatorResponse;
 import com.example.sslcommerz.repository.SSLCZPaymentRepository;
 import com.example.sslcommerz.service.TransactionInitiator;
+import java.util.Random;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,11 +34,13 @@ public class SSLCZPaymentController {
     @GetMapping("/initiate")
     public String initiatePayment(
             @RequestParam String amount,
-            String tran_id,
+//            String tran_id,
             String cus_email,
             String cus_name,
             SSLCommerzValidatorResponse sslCommerzValidatorResponse
     ) {
+        String uniqeNum= String.valueOf((int) (Math.random()* 100000000));
+        String tran_id="TX"+uniqeNum;
         TransactionInitiator initiator = new TransactionInitiator();
         String response = initiator.initTrnxnRequest(
                 amount,
