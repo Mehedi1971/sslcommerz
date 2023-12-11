@@ -11,10 +11,10 @@ import java.util.Map;
  * Its method initTrnxnRequest returns JSON list or String with Session key which then used to select payment option
  */
 public class TransactionInitiator {
-    public String initTrnxnRequest(String amount,
-                                   String tran_id,
-                                   String cus_name,
-                                   String cus_email) {
+    public static String initTrnxnRequest(String amount,
+        String tran_id,
+        String cus_name,
+        String cus_email) {
 
         String response = "";
         try {
