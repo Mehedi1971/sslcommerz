@@ -18,8 +18,10 @@ public class SSLCZPaymentServiceImpl implements SSLCZPaymentService {
 
     RestTemplate restTemplate = new RestTemplate();
     ResponseEntity<String> responseEntity = restTemplate.getForEntity(requestedUrl, String.class);
-    System.out.println(responseEntity.getBody().contains("\"status\":\"FAILED"));
-    boolean exits = responseEntity.getBody().contains("\"status\":\"VALID");
+    System.out.println(responseEntity.getBody().contains("\"status\":\"VALID\""));
+    boolean exits = responseEntity.getBody().contains("\"status\":\"VALIDATED\"");
+//    boolean exits = responseEntity.getBody().contains("\"APIConnect\":\"DONE\"");
+    System.out.println(exits);
     if (exits) {
       return true;
     }

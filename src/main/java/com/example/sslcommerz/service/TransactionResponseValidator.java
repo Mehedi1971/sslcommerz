@@ -17,8 +17,8 @@ public class TransactionResponseValidator {
      */
     public boolean receiveSuccessResponse(Map<String, String> request) throws Exception {
 
-//        String trxId = request.get("tran_id");
-        String trxId = "TX20551534";
+        String trxId = request.get("tran_id");
+//        String trxId = "TX20551534";
         /**
          *Get your AMOUNT and Currency FROM DB to initiate this Transaction
          */
@@ -32,7 +32,8 @@ public class TransactionResponseValidator {
          * if this following validation returns false , then query status if failed of canceled.
          *      Check request.get("status") for this purpose
          */
-        return sslcz.orderValidate(trxId, amount, currency, request);
+//        return sslcz.orderValidate(trxId, amount, currency, request);
+        return sslcz.orderValidate(trxId, "1000", "BDT", request);
 
     }
 }

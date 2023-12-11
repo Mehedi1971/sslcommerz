@@ -68,9 +68,9 @@ public class SSLCZPaymentController {
 
   @GetMapping("/{transactionId}")
   public String checkTransaction(@PathVariable String transactionId) throws Exception {
-    sslczPaymentService.checkTransaction(transactionId);
-    if (false) {
-      return "redirect:http://localhost:8080/payment/initiate";
+    boolean exits=sslczPaymentService.checkTransaction(transactionId);
+    if (!exits) {
+      return "http://localhost:8080/payment/initiate";
     } else {
       return "Success";
     }
